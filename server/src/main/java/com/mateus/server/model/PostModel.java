@@ -16,7 +16,7 @@ public class PostModel {
     private Long id;
     private String title;
     private String description;
-    private String image_url;
+    private String img_url;
     private String content;
     
 }
