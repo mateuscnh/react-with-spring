@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  color: #2a2a2a;
+}
+
+.app {
+  padding: 0 2%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
