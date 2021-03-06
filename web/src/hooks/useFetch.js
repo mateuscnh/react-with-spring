@@ -1,4 +1,5 @@
 import useSWR from "swr";
+import api from "../services/api";
 
 export function useFetch(url, method) {
   const { data, error } = useSWR(url, async (url) => {
@@ -6,7 +7,10 @@ export function useFetch(url, method) {
     if (method) {
       header.method = method;
     }
-    return await fetch(url, header).then((response) => response.json());
+
+    const { data } = await api({ url, ...header });
+
+    return data;
   });
 
   return { data, error };

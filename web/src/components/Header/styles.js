@@ -22,11 +22,4 @@ export const Container = styled.header`
 
     cursor: pointer;
   }
-
-  .button-generate {
-    margin: 12px;
-    color: #2a004f;
-    background-color: transparent;
-    border: 1px solid #2a004f;
-  }
 `;
