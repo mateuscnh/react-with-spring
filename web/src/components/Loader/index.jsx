@@ -1,23 +1,18 @@
+import { Spin } from "antd";
 import React from "react";
-import styled, { keyframes } from "styled-components";
-
-const SpinAnimate = keyframes`
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-`;
+import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 32px auto;
-  border: 8px solid #dbdbdb;
-  border-top: 8px solid #2a004f;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: ${SpinAnimate} 1s linear infinite;
+  text-align: center;
+  margin: 40px 0;
 `;
 
-function Loader() {
-  return <Container />;
+function Loader({ size }) {
+  return (
+    <Container>
+      <Spin size={size} />
+    </Container>
+  );
 }
 
 export default Loader;

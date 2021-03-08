@@ -1,14 +1,24 @@
+import { Image } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 
 import { Container } from "./styles";
 
-function Post({ data }) {
-  const { id, title, description, img_url, data_tour } = data;
+function Post({ data, tour }) {
+  const { id, title, description, img_url } = data;
 
   return (
     <Container>
-      <img src={img_url} alt={title} data-tour={data_tour} />
+      <div className="post-img">
+        <img
+          src={
+            img_url ??
+            "https://spassodourado.com.br/wp-content/uploads/2015/01/default-placeholder.png"
+          }
+          alt={title}
+          data-tour={tour}
+        />
+      </div>
 
       <div>
         <Link to={`/details/${id}`}>

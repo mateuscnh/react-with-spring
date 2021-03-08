@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Main from "./components/Main";
-import PostDetails from "./components/PostDetails";
+import Main from "./pages/Main";
+import PostDetails from "./pages/PostDetails";
 
 export default function AppRoutes() {
   return (

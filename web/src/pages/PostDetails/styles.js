@@ -10,13 +10,33 @@ export const Container = styled.div`
     width: 100%;
     margin-bottom: 40px;
 
+    .ant-image {
+      margin-bottom: 24px;
+
+      .ant-image-img {
+        margin: 0 auto;
+      }
+
+      .ant-image-mask {
+        /* max-height: 93%; */
+        border-radius: 100%;
+      }
+    }
+
     .back-to-home {
       position: absolute;
       top: 40px;
       left: 40px;
       text-decoration: none;
 
+      display: flex;
+      align-items: center;
+
       color: #2a004f;
+
+      svg {
+        margin-right: 8px;
+      }
     }
   }
 

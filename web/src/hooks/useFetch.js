@@ -1,17 +1,12 @@
 import useSWR from "swr";
 import api from "../services/api";
 
-export function useFetch(url, method) {
-  const { data, error } = useSWR(url, async (url) => {
-    const header = { method: "GET" };
-    if (method) {
-      header.method = method;
-    }
+export function useFetch(url) {
+  const { data, error, mutate } = useSWR(url, async (url) => {
+    const { data } = await api.get(url);
 
-    const { data } = await api({ url, ...header });
-
-    return data;
+    return data.reverse();
   });
 
-  return { data, error };
+  return { data, error, mutate };
 }

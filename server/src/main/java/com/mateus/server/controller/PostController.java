@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping
 public class PostController {
@@ -30,19 +30,19 @@ public class PostController {
         return postRepository.findAll();
     }
 
-    @GetMapping(value="/post/{id}")
+    @GetMapping(value="/posts/{id}")
     public ResponseEntity<?> getById(@PathVariable long id) {
         return postRepository.findById(id)
            .map(record -> ResponseEntity.ok().body(record))
            .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping(value="/post")
+    @PostMapping(value="/posts")
     public PostModel create(@RequestBody PostModel postModel) {
         return postRepository.save(postModel);
     }
 
-    @PutMapping(value="/post/{id}")
+    @PutMapping(value="/posts/{id}")
     public ResponseEntity<?> update(@PathVariable("id") long id, @RequestBody PostModel postModel) {
         return postRepository.findById(id).map(record -> {
             record.setTitle(postModel.getTitle());
@@ -55,7 +55,7 @@ public class PostController {
          }).orElse(ResponseEntity.notFound().build());
     }   
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/posts/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         return postRepository.findById(id).map(record -> {
             postRepository.deleteById(id);
